@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lefteris Paparounas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #000;
+            background-color: #F7F3F0;
+            font-size: 18px;
+            font-weight: 400;
+        }
+
+        /* Header */
+        header {
+            background-color: #EAE8DC;
+            padding: 2rem 3rem;
+            border-bottom: 1px solid #3D79B6;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-title {
+        display: flex;
+        align-items: baseline;
+        gap: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .site-title {
+        font-size: 2.5rem;
+        font-weight: 600;
+        color: #3D79B6;
+        text-decoration: none;
+        letter-spacing: 0.02em;
+    }
+
+    .site-title:hover {
+        color: #5D7D9E;
+    }
+
+    .pronunciation {
+        font-size: 1.1rem;
+        color: #666;
+        font-family: Georgia, 'Times New Roman', serif;
+        font-weight: normal;
+    }
+
+       .header-email {
+    font-size: 0.95rem;
+    margin-bottom: 0rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.header-icons {
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+    margin-left: auto;
+}
+
+.header-icons a {
+    color: #3D79B6;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    transition: color 0.2s;
+    text-decoration: none;
+}
+
+.header-icons a:hover {
+    color: #5D7D9E;
+}
+
+        nav {
+            display: flex;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #000;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 1.1rem;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #5D7D9E;
+        }
+
+      /* .lang-toggle-header {
+    position: absolute;
+    top: 2rem;
+    right: 3rem;
+    font-size: 1.1rem;
+    font-weight: 500
+} */
+
+/* .lang-toggle-header a {
+    color: #3D79B6;
+    text-decoration: none;
+}
+
+.lang-toggle-header a:hover {
+    color: #5D7D9E;
+    text-decoration: underline;
+} */
+
+        /* Main Content */
+        main {
+            padding: 3rem 3rem;
+        }
+
+        section {
+            margin-bottom: 5rem;
+        }
+
+        section p {
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        a {
+            color: #3D79B6;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #5D7D9E;
+            text-decoration: underline;
+        }
+
+        /* Section headers */
+        h2 {
+            font-size: 1.5rem;
+            color: #3D79B6;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        #publications h2 {
+            margin-left: 0;
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            color: #3D79B6;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            margin-left: 2rem;
+            font-weight: 500;
+        }
+
+        /* News items */
+        .news-item {
+            margin-bottom: 0.8rem;
+            font-size: 1.05rem;
+        }
+
+        .news-date {
+            font-weight: 600;
+            color: #000;
+        }
+
+        /* Publications */
+        #publications {
+            padding-left: 1rem;
+            margin-left: -1rem;
+        }
+
+        #publications {
+            position: relative;
+        }
+
+        #publications::before {
+            content: '';
+            position: absolute;
+            left: 1.5rem;
+            top: 8.7rem;
+            bottom: 0;
+            width: 1px;
+            background-color: #3D79B6;
+        }
+
+        .pub-item {
+            margin-bottom: 0;
+            margin-left: 4rem;
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 1.5rem;
+            font-size: 1.05rem;
+            padding: 0.75rem 0;
+        }
+
+        .pub-item:nth-child(odd) {
+            background-color: rgba(61, 121, 182, 0.03);
+        }
+
+        .pub-item:nth-child(even) {
+            background-color: rgba(234, 232, 220, 0.5);
+        }
+
+        .pub-year {
+            font-weight: 500;
+            color: #000;
+            margin-left: 0.3rem;
+        }
+
+        .pub-content {
+            line-height: 1.6;
+        }
+        
+
+        .pub-content strong {
+            font-weight: 500;
+        }
+
+       .preprint-link {
+            color: #5D7D9E;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-left: 0.5rem;
+        }
+
+       .collaborator {
+            font-weight: 500;
+            margin-left: 0.2rem;
+        }
+
+        /* Contact */
+        .contact {
+            font-size: 1.05rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-section h3 {
+            font-size: 1.05rem;
+            color: #000;
+            margin: 0 0 0.75rem 0;
+            font-weight: 600;
+        }
+
+        .contact-section p {
+            margin: 0;
+            line-height: 1.5;
+            font-size: 1.05rem;
+        }
+
+        .contact a {
+            color: #3D79B6;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem 3rem;
+            color: #999;
+            font-size: 0.9rem;
+            border-top: 1px solid #ddd;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header, main, footer {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+
+            body {
+                font-size: 16px;
+            }
+
+            .site-title {
+                font-size: 2rem;
+            }
+
+            nav {
+                gap: 1.5rem;
+            }
+
+            .pub-item {
+                grid-template-columns: 80px 1fr;
+                gap: 1rem;
+                margin-left: 2rem;
+            }
+
+            h3 {
+                margin-left: 1rem;
+            }
+
+            #publications > h2,
+            #publications > p {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#top" class="site-title">Lefteris Paparounas</a>
+        <div class="pronunciation">[lɛfˈtʰɛɹɪs ˌpʰæpəˈɹuːnəs]</div>
+        <div class="header-email">
+    <a href="mailto:paparounas.lefteris@uqam.ca">paparounas[dot]lefteris[at]uqam[dot]ca</a>
+    <div class="header-icons">
+        <a href="mailto:paparounas.lefteris@uqam.ca" title="Email"><i class="fa-solid fa-envelope"></i></a>
+        <a href="https://app.box.com/s/qz24qtbpp48maahy09eyltnykk6lzyz8" target="_blank" title="CV">CV</a>
+        <a href="https://scholar.google.com/citations?user=jUCZFjoAAAAJ&hl=en&oi=ao" target="_blank" title="Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a>
+        <a href="https://orcid.org/0000-0001-9599-4404" target="_blank" title="ORCID"><i class="fa-brands fa-orcid"></i></a>
+        <a href="https://linguistique.uqam.ca" target="_blank" title="UQAM Linguistics"><i class="fa-solid fa-building-columns"></i></a>
+    </div>
+</div>
+<!-- <div class="lang-toggle-header">
+    <a href="fr/index.html">Français</a>
+</div> -->
+    </header>
+
+    <main>
+        <section id="top" class="intro">
+            <p>I'm an Assistant Professor at the <a href="https://linguistique.uqam.ca">Department of Linguistics</a> of the <a href="https://uqam.ca">Université du Québec à Montréal (UQAM)</a>.</p> 
+            
+             <p>I work on syntactic and morphological theory, with a focus on argument structure, binding, agreement, clitic doubling, and allomorphy. I specialize in (Modern) Greek and Turkish.</p>
+            
+            <p>I received my PhD from the <a href="http://ling.upenn.edu">University of Pennsylvania</a> in 2023. My dissertation, <em>Voice from syntax to syncretism,</em> can be accessed <a href="https://lingbuzz.net/lingbuzz/007720">here</a>.</p>
+        </section>
+
+    <section class="news">
+    <h2>Recent Updates</h2>
+    <div class="news-item">
+        <span class="news-date">Oct '25:</span>
+        Terrance Gatchalian, Jessica Coon and I gave a <a href="https://bpb-us-e1.wpmucdn.com/wp.nyu.edu/dist/2/33372/files/2025/08/36_a_unified_syntax.pdf">talk</a> on stative verbs in Kanienʼkéha at NELS 56. (proceedings paper in prep.)
+    </div>
+    <div class="news-item">
+        <span class="news-date">Sept '25:</span>
+        WCCFL paper on ATB movement and case (with Doreen Georgi and Martin Salzmann) is on <a href="https://lingbuzz.net/lingbuzz/009324">lingbuzz</a>.
+    </div>
+</section>
+
+        <section id="publications">
+            <h2>Writings</h2>
+            
+            <p>Please email me for anything not linked to here, and see <a href="https://upenn.box.com/s/qz24qtbpp48maahy09eyltnykk6lzyz8">my CV</a> for talks etc.</p>
+
+            <h3>Thesis</h3>
+            <div class="pub-item">
+                <div class="pub-year">2023</div>
+                <div class="pub-content"><a href="https://lingbuzz.net/lingbuzz/007720"><strong><em>Voice from syntax to syncretism</em></strong></a>. Doctoral dissertation, University of Pennsylvania.</div>
+            </div>
+
+            <h3>Journal articles</h3>
+            
+           
+
+             <div class="pub-item">
+                <div class="pub-year">In prep.</div>
+                <div class="pub-content"><strong><em>Two types of non-structural Case: Evidence from ATB movement in Modern Greek</em></strong>. <span class="collaborator">(with <a href="http://doreengeorgi.com">Doreen Georgi</a> and <a href="http://www.martinsalzmann.com">Martin Salzmann</a>)</span></div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-year">Under revision</div>
+                <div class="pub-content"><a href="https://ling.auf.net/lingbuzz/007537"><strong><em>Reflexivity and external argument introduction: Insights from Greek.</em></strong></a></div>
+            </div>
+
+             <div class="pub-item">
+                <div class="pub-year">Submitted</div>
+                <div class="pub-content"><a href="attachments/stp-paper.pdf"><strong><em>Greek stative passives as small non-passives.</em></strong></a></div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-year">Resubmitted</div>
+                <div class="pub-content"><strong><em><a href="attachments/refl-tk.pdf">The argument structure of Turkish verbal reflexives</em></strong></a>. <span class="collaborator">(with <a href="https://farukakkus.wordpress.com">Faruk Akkuş</a>)</span></div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-year">2024</div>
+                <div class="pub-content"><a href="https://onlinelibrary.wiley.com/doi/full/10.1111/synt.12289"><strong><em>The syntax of Greek split reciprocals</em></strong></a>. <em>Syntax</em>. <span class="collaborator">(with <a href="http://www.martinsalzmann.com">Martin Salzmann</a>)</span></div>
+            </div>
+
+              <div class="pub-item">
+                <div class="pub-year">2024</div>
+                <div class="pub-content"><a href="https://direct.mit.edu/ling/article-abstract/doi/10.1162/ling_a_00479/112077/Visibility-and-Intervention-in-Allomorphy-Lessons?redirectedFrom=fulltext"><strong><em>Visibility and intervention in allomorphy: Lessons from Modern Greek</em></strong></a>. <em>Linguistic Inquiry</em>. <a href="attachments/li-paper-visibility.pdf" class="preprint-link">[preprint]</a></div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-year">2023</div>
+                <div class="pub-content"><a href="https://link.springer.com/article/10.1007/s11049-023-09583-4"><strong><em>Anaphora and agreement in the Turkish DP: Delimiting binding-through-Agree</em></strong></a>. <em>Natural Language & Linguistic Theory</em>. <span class="collaborator">(with <a href="https://farukakkus.wordpress.com">Faruk Akkuş</a>)</span></div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-year">2023</div>
+                <div class="pub-content"><a href="https://link.springer.com/article/10.1007/s11049-023-09585-2"><strong><em>First conjunct clitic doubling in Modern Greek: Evidence for Agree-based approaches to clitic doubling</em></strong></a>. <em>Natural Language & Linguistic Theory</em>. <span class="collaborator">(with <a href="http://www.martinsalzmann.com">Martin Salzmann</a>)</span></div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-year">2023</div>
+                <div class="pub-content"><a href="https://www.glossa-journal.org/article/id/8417/"><strong><em>First Conjunct Clitic Doubling, the Person Case Constraint, and First Conjunct Agreement: Insights from Modern Greek</em></strong></a>. <em>Glossa Special Collection 309: Multivaluation in Agreement</em>. <span class="collaborator">(with <a href="http://www.martinsalzmann.com">Martin Salzmann</a>)</span></div>
+            </div>
+
+            <h3>Chapters in edited volumes</h3>
+            
+            <div class="pub-item">
+                <div class="pub-year">To appear</div>
+                <div class="pub-content"><a href="https://ling.auf.net/lingbuzz/006216/current.pdf?_s=Yhn-i3BRwui7m9zI"><strong><em>Blocking effects</em></strong></a>. In <em>The Wiley Blackwell Companion to Morphology</em>, ed. by P. Ackema, S. Bendjaballah, E. Bonet, and A. Fábregas. <span class="collaborator">(with <a href="https://www.ling.upenn.edu/~embick/">David Embick</a> and <a href="https://www.johannabenz.com">Johanna Benz</a>)</span></div>
+            </div>
+
+            <h3>Conference proceedings</h3>
+
+            <div class="pub-item">
+                <div class="pub-year">In prep.</div>
+                <div class="pub-content"><strong><em>A unified syntax and semantics of Kanien'kéha statives</em></strong>. In <em>Proceedings of NELS 56</em>. <span class="collaborator">(with <a href="https://terrancegatchalian.github.io">Terrance Gatchalian</a> and <a href="https://jessica.lingspace.org">Jessica Coon</a>)</span></div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-year">In press</div>
+                <div class="pub-content"><a href="https://lingbuzz.net/lingbuzz/009324"><strong><em>ATB movement and non-structural Case in Modern Greek</em></strong></a>. In <em>Proceedings of WCCFL 43</em>. <span class="collaborator">(with <a href="http://doreengeorgi.com">Doreen Georgi</a> and <a href="http://www.martinsalzmann.com">Martin Salzmann</a>)</span></div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-year">2025</div>
+                <div class="pub-content"><a href="https://lingbuzz.net/lingbuzz/009143"><strong><em>Thematic reversals in stative non-passives</em></strong></a>. In <em>Proceedings of NELS 55</em>.</div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-year">2024</div>
+                <div class="pub-content"><a href="https://lingbuzz.net/lingbuzz/008310"><strong><em>Turkish verbal reflexives and movement</em></strong></a>. In <em>Proceedings of NELS 54</em>. <span class="collaborator">(with <a href="https://farukakkus.wordpress.com">Faruk Akkuş</a>)</span></div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-year">2023</div>
+                <div class="pub-content"><a href="https://ling.auf.net/lingbuzz/007275/current.pdf?_s=hS95zecxPYabAs4l"><strong><em>Reciprocal = Floating quantifier + anaphor: Evidence from Greek discontinuous reciprocals</em></strong></a>. In <em>Proceedings of NELS 53</em>, ed. by Suet-Ying Lam and Satoru Ozaki. Amherst, MA: GLSA. <span class="collaborator">(with <a href="http://www.martinsalzmann.com">Martin Salzmann</a>)</span></div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-year">2023</div>
+                <div class="pub-content"><a href="https://ling.auf.net/lingbuzz/007286"><strong><em>Phrasal layering versus complex heads in Greek stative passives.</em></strong></a> In <em>Proceedings of NELS 53</em>, ed. by Suet-Ying Lam and Satoru Ozaki. Amherst, MA: GLSA.</div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-year">2022</div>
+                <div class="pub-content"><strong><em>First Conjunct Clitic Doubling: Implications for Theories of the PCC and Approaches to First Conjunct Agreement</em></strong>. In <em>CLS 57: Proceedings from the 57th Meeting of the Chicago Linguistic Society</em>. <span class="collaborator">(with <a href="http://www.martinsalzmann.com">Martin Salzmann</a>)</span></div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-year">2022</div>
+                <div class="pub-content"><a href="https://repository.upenn.edu/server/api/core/bitstreams/18bb9630-01b5-4215-b0bd-e7a28998ad1a/content"><strong><em>Reflexivization, intransitivity, and Voice</em></strong></a>. In <em>Proceedings of PLC 46</em>.</div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-year">2021</div>
+                <div class="pub-content"><a href="https://ling.auf.net/lingbuzz/006030/current.pdf?_s=6xmVog_rA5Mubldu"><strong><em>First conjunct clitic doubling: Evidence for Agree-based approaches</em></strong></a>. In <em>Proceedings of WCCFL 39</em>. <span class="collaborator">(with <a href="http://www.martinsalzmann.com">Martin Salzmann</a>)</span></div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-year">2021</div>
+                <div class="pub-content"><strong><em>Binding through Agree in Turkish</em></strong>. In <em>Proceedings of NELS 51</em>, ed. by A. Farinella & A. Hill. Amherst, MA: GLSA. <span class="collaborator">(with <a href="https://farukakkus.wordpress.com">Faruk Akkuş</a>)</span></div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-year">2021</div>
+                <div class="pub-content"><a href="https://journals.linguisticsociety.org/proceedings/index.php/PLSA/article/download/4985/4546"><strong><em>Default by intervention: Allomorphy and locality in the Modern Greek verb</em></strong></a>. In <em>Proceedings of the Linguistic Society of America</em>, Vol 6.1, ed. by P. Farell.</div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-year">2021</div>
+                <div class="pub-content"><a href="https://paparounas.net/wp-content/uploads/2020/09/Paparounas_CLS56_FINAL.pdf"><strong><em>Implicit complements and the identity condition on ellipsis</em></strong></a>. In <em>CLS 56: Proceedings from the 56th Meeting of the Chicago Linguistic Society</em>.</div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-year">2020</div>
+                <div class="pub-content"><strong><em>The Anaphor Agreement Effect in the nominal domain: Evidence from Turkish</em></strong>. In <em>Proceedings of the Linguistic Society of America</em>, Vol 5.1, ed. by P. Farell. <span class="collaborator">(with <a href="https://farukakkus.wordpress.com">Faruk Akkuş</a>)</span></div>
+            </div>
+
+            <h3>Edited volumes</h3>
+
+            <div class="pub-item">
+                <div class="pub-year">2021</div>
+                <div class="pub-content"><a href="https://repository.upenn.edu/pwpl/vol27/iss1/"><strong><em>Penn Working Papers in Linguistics: Proceedings of the 44th annual Penn Linguistics Conference, Vol 27.1</em></strong></a>. <span class="collaborator">(with <a href="https://www.kalomoiros.com">Alexandros Kalomoiros</a>)</span></div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            
+            <div class="contact-grid">
+                <div class="contact-section">
+                    <h3>Email</h3>
+                    <p><a href="mailto:paparounas.lefteris@uqam.ca">paparounas[dot]lefteris[at]uqam[dot]ca</a></p>
+                </div>
+
+                <div class="contact-section">
+                    <h3>Office</h3>
+                    <p>
+                        A-3610, Département de linguistique<br>
+                        Pavillon Hubert-Aquin, Université du Québec à Montréal<br>
+                        400, rue Sainte-Catherine Est<br>
+                        Montréal (Québec) H2L 2C5<br>
+                        Canada
+                    </p>
+                </div>
+
+                <div class="contact-section">
+                    <h3>Postal address</h3>
+                    <p>
+                        Département de linguistique<br>
+                        Université du Québec à Montréal<br>
+                        C.P. 8888, Succursale Centre-Ville<br>
+                        Montréal (Québec) H3C 3P8<br>
+                        Canada
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Lefteris Paparounas</p>
+    </footer>
+</body>
+</html>
