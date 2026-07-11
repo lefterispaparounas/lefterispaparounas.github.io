@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lefteris Paparounas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #000;
+            background-color: #F7F3F0;
+            font-size: 18px;
+            font-weight: 400;
+        }
+
+        /* Header */
+        header {
+            background-color: #EAE8DC;
+            padding: 2rem 3rem;
+            border-bottom: 1px solid #3D79B6;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-title {
+        display: flex;
+        align-items: baseline;
+        gap: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .site-title {
+        font-size: 2.5rem;
+        font-weight: 600;
+        color: #3D79B6;
+        text-decoration: none;
+        letter-spacing: 0.02em;
+    }
+
+    .site-title:hover {
+        color: #5D7D9E;
+    }
+
+    .pronunciation {
+        font-size: 1.1rem;
+        color: #666;
+        font-family: Georgia, 'Times New Roman', serif;
+        font-weight: normal;
+    }
+
+       .header-email {
+    font-size: 0.95rem;
+    margin-bottom: 0rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.header-icons {
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+    margin-left: auto;
+}
+
+.header-icons a {
+    color: #3D79B6;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    transition: color 0.2s;
+    text-decoration: none;
+}
+
+.header-icons a:hover {
+    color: #5D7D9E;
+}
+
+        nav {
+            display: flex;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #000;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 1.1rem;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #5D7D9E;
+        }
+
+                 .lang-toggle-header {
+    position: absolute;
+    top: 2rem;
+    right: 3rem;
+    font-size: 1.1rem;
+    font-weight: 500
+        }
+
+    .lang-toggle-header a {
+        color: #3D79B6;
+        text-decoration: none;
+            }
+
+    .lang-toggle-header a:hover {
+        color: #5D7D9E;
+        text-decoration: underline;
+        }
+
+        /* Main Content */
+        main {
+            padding: 3rem 3rem;
+        }
+
+        section {
+            margin-bottom: 5rem;
+        }
+
+        section p {
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        a {
+            color: #3D79B6;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #5D7D9E;
+            text-decoration: underline;
+        }
+
+        /* Section headers */
+        h2 {
+            font-size: 1.5rem;
+            color: #3D79B6;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        #publications h2 {
+            margin-left: 0;
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            color: #3D79B6;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            margin-left: 2rem;
+            font-weight: 500;
+        }
+
+        /* News items */
+        .news-item {
+            margin-bottom: 0.8rem;
+            font-size: 1.05rem;
+        }
+
+        .news-date {
+            font-weight: 600;
+            color: #000;
+        }
+
+        /* Publications */
+        #publications {
+            padding-left: 1rem;
+            margin-left: -1rem;
+        }
+
+        #publications {
+            position: relative;
+        }
+
+        #publications::before {
+            content: '';
+            position: absolute;
+            left: 1.5rem;
+            top: 8.7rem;
+            bottom: 0;
+            width: 1px;
+            background-color: #3D79B6;
+        }
+
+        .pub-item {
+            margin-bottom: 0;
+            margin-left: 4rem;
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 1.5rem;
+            font-size: 1.05rem;
+            padding: 0.75rem 0;
+        }
+
+        .pub-item:nth-child(odd) {
+            background-color: rgba(61, 121, 182, 0.03);
+        }
+
+        .pub-item:nth-child(even) {
+            background-color: rgba(234, 232, 220, 0.5);
+        }
+
+        .pub-year {
+            font-weight: 500;
+            color: #000;
+            margin-left: 0.3rem;
+        }
+
+        .pub-content {
+            line-height: 1.6;
+        }
+
+        .pub-content strong {
+            font-weight: 500;
+        }
+
+       .preprint-link {
+            color: #5D7D9E;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-left: 0.5rem;
+        }
+
+       .collaborator {
+            font-weight: 500;
+            margin-left: 0.2rem;
+        }
+
+        /* Contact */
+        .contact {
+            font-size: 1.05rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-section h3 {
+            font-size: 1.05rem;
+            color: #000;
+            margin: 0 0 0.75rem 0;
+            font-weight: 600;
+        }
+
+        .contact-section p {
+            margin: 0;
+            line-height: 1.5;
+            font-size: 1.05rem;
+        }
+
+        .contact a {
+            color: #3D79B6;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem 3rem;
+            color: #999;
+            font-size: 0.9rem;
+            border-top: 1px solid #ddd;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header, main, footer {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+
+            body {
+                font-size: 16px;
+            }
+
+            .site-title {
+                font-size: 2rem;
+            }
+
+            nav {
+                gap: 1.5rem;
+            }
+
+            .pub-item {
+                grid-template-columns: 80px 1fr;
+                gap: 1rem;
+                margin-left: 2rem;
+            }
+
+            h3 {
+                margin-left: 1rem;
+            }
+
+            #publications > h2,
+            #publications > p {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#top" class="site-title">Lefteris Paparounas</a>
+        <div class="pronunciation">[lɛfˈtʰɛɹɪs ˌpʰæpəˈɹuːnəs]</div>
+        <div class="header-email">
+    <a href="mailto:paparounas.lefteris@uqam.ca">paparounas[point]lefteris[at]uqam[point]ca</a>
+    <div class="header-icons">
+        <a href="mailto:paparounas.lefteris@uqam.ca" title="Courriel"><i class="fa-solid fa-envelope"></i></a>
+        <a href="https://app.box.com/s/qz24qtbpp48maahy09eyltnykk6lzyz8" target="_blank" title="CV">CV</a>
+        <a href="https://scholar.google.com/citations?user=jUCZFjoAAAAJ&hl=en&oi=ao" target="_blank" title="Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a>
+        <a href="https://orcid.org/0000-0001-9599-4404" target="_blank" title="ORCID"><i class="fa-brands fa-orcid"></i></a>
+        <a href="https://linguistique.uqam.ca" target="_blank" title="UQAM Linguistique"><i class="fa-solid fa-building-columns"></i></a>
+    </div>
+</div>
+<div class="lang-toggle-header">
+    <a href="index.html">en</a>
+</div>
+    </header>
+    <main>
+        <section id="top" class="intro">
+            <p>Je suis professeur adjoint au <a href="https://linguistique.uqam.ca">Département de linguistique</a> de l'<a href="https://uqam.ca">Université du Québec à Montréal (UQAM)</a>.</p>
+
+            <p>Mes recherches portent sur la théorie syntaxique et morphologique, avec un intérêt particulier pour la structure argumentale, le liage, l'accord, le dédoublement clitique et l'allomorphie. Je travaille principalement sur le grec moderne et le turc.</p>
+
+            <p>J'ai obtenu mon doctorat de l'<a href="http://ling.upenn.edu">Université de Pennsylvanie</a> en 2023. Ma thèse, <em>Voice from syntax to syncretism</em>, est accessible <a href="https://lingbuzz.net/lingbuzz/007720">ici</a>.</p>
+        </section>
+
+        <section class="news">
+            <h2>Actualités</h2>
+            <div class="news-item">
+                <span class="news-date">Juillet '26 :</span>
+                <a href="https://lingbuzz.net/lingbuzz/010115?_s=0BqLHzJM4c0SKDTo&_k=Rbygh8uzAujyB607">Article sur les verbes réfléchis en  turc</a> (avec Faruk Akkuş) accepté dans <em>Linguistic Inquiry</em>.
+            </div>
+            <div class="news-item">
+                <span class="news-date">Juillet '26 :</span>
+                Visite de recherche (et <a href="attachments/potsdam_handout.pdf">conférence</a>) à l'Universität Potsdam.
+            </div>
+        </section>
+
+        <section id="publications">
+            <h2>Publications</h2>
+            <p>N'hésitez pas à me contacter pour tout document non lié ici, et consultez <a href="https://app.box.com/s/qz24qtbpp48maahy09eyltnykk6lzyz8">mon CV</a> pour les communications, etc.</p>
+            <!-- BEGIN PUBLICATIONS -->
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+
+            <div class="contact-grid">
+                <div class="contact-section">
+                    <h3>Courriel</h3>
+                    <p><a href="mailto:paparounas.lefteris@uqam.ca">paparounas[point]lefteris[at]uqam[point]ca</a></p>
+                </div>
+
+                <div class="contact-section">
+                    <h3>Bureau</h3>
+                    <p>
+                        A-3610, Département de linguistique<br>
+                        Pavillon Hubert-Aquin, Université du Québec à Montréal<br>
+                        400, rue Sainte-Catherine Est<br>
+                        Montréal (Québec) H2L 2C5<br>
+                        Canada
+                    </p>
+                </div>
+
+                <div class="contact-section">
+                    <h3>Adresse postale</h3>
+                    <p>
+                        Département de linguistique<br>
+                        Université du Québec à Montréal<br>
+                        C.P. 8888, Succursale Centre-Ville<br>
+                        Montréal (Québec) H3C 3P8<br>
+                        Canada
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Lefteris Paparounas</p>
+    </footer>
+</body>
+</html>
